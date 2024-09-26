@@ -49,10 +49,6 @@ spring:
       refresh-expiration: 14*60*60*1000
       access-expiration: 14*60*60*1000
 
-#server:
-#  servlet:
-#    context-path: /api/v1
-
   sql:
     init:
       mode: always
