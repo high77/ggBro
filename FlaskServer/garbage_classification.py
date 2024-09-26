@@ -58,11 +58,7 @@ def remove_background_grabcut(image_path, output_path):
 
     # 중심 영역을 전경으로 설정
     # margin_x = width // 3
-    # margin_y = height // 2
-
-    # margin_x = 80
-    # margin_y = 120
-
+    # margin_y = height정
     margin_x = width // 4
     margin_y = height // 2
 
