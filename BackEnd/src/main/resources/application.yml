@@ -25,7 +25,6 @@ spring:
           batch_size: 100              #   insert/update 쿼리를 원하는 개수만큼 모아서 DB에 날릴 수 있는 옵션
         default_batch_fetch_size: 100
 
-
   data:
     redis:
       master:
