@@ -16,16 +16,17 @@
 - [시스템 아키텍처](#시스템-아키텍처)<br>
 - [주요 기술](#주요-기술)<br>
 - [파일 구조](#파일-구조)<br>
-- [프로젝트 산출물](#프로젝트-산출물)<br>
+<!-- - [프로젝트 산출물](#프로젝트-산출물)<br> -->
 
 <br>
 <br>
 
 # 참여 인원
 
-|    전규훈    | 김민욱 | 강성권 |    김혁일    |   최시원    | 박미성 |
+총 6명
+<!-- |    전규훈    | 김민욱 | 강성권 |    김혁일    |   최시원    | 박미성 |
 | :----------: | :----: | :----: | :----------: | :---------: | :----: |
-| Iot (Leader) | Front  | Front  | Back, Server | Back,Server |   AI   |
+| Iot (Leader) | Front  | Front  | Back, Server | Back,Server |   AI   | -->
 
 <br>
 <br>
@@ -346,9 +347,9 @@ frontend\lib
 <br>
 <br>
 
-# 프로젝트 산출물
+<!-- # 프로젝트 산출물
 
 - [요구사항 명세서](https://www.notion.so/SSAFY-C206-a9bd69e29d404bfba469baaba88bcfbc)
 - [API 명세서](https://www.notion.so/SSAFY-C206-a9bd69e29d404bfba469baaba88bcfbc)
 - [ERD](https://www.erdcloud.com/team/ijemLkdQX5afChLjg)
-- [와이어프레임(피그마)](https://www.figma.com/files/project/221823514/Team-project?fuid=1324572789228621233)
+- [와이어프레임(피그마)](https://www.figma.com/files/project/221823514/Team-project?fuid=1324572789228621233) -->
