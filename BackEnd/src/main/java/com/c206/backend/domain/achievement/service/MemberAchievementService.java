@@ -12,4 +12,7 @@ public interface MemberAchievementService {
 
     // 업적보상 받기
     NewGoalResponseDto getReward(Long memberId, Long memberAchievementId);
+
+    // 업적 진행상황 업데이트
+    void updateMemberAchievement(Long memberId, Long achievementId,int progress);
 }

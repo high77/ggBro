@@ -14,7 +14,8 @@ public interface MemberQuestService {
 
     void addQuestList(Long memberId);
 
-
     void addQuestListSchedule();
+
+    void  updateMemberQuest(Long memberId,Long memberPetId, Long questId);
 
 }

@@ -35,6 +35,7 @@ public class MemberQuestServiceImpl implements MemberQuestService {
     private final MemberPetRepository memberPetRepository;
     private final MemberInfoRepository memberInfoRepository;
 
+    @Override
     public void  updateMemberQuest(Long memberId,Long memberPetId, Long questId) {
         MemberQuest memberQuest=memberQuestRepository.findTopByMemberIdAndMemberPetIdAndQuestIdOrderByIdDesc(memberId,memberPetId,questId);
         System.out.println(memberQuest);

@@ -39,7 +39,7 @@ public class MemberPetServiceImpl implements MemberPetService {
     private final PetRepository petRepository;
     private final RedisService redisService;
 
-
+    @Override
     public void createMemberPet(List<MemberPet> memberPets,List<Pet> pets,Member member) {
         HashSet<Long> petIdSet = new HashSet<>();
         for (Pet pet:pets) {

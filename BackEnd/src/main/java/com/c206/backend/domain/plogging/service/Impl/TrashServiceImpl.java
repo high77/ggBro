@@ -3,6 +3,7 @@ package com.c206.backend.domain.plogging.service.Impl;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.c206.backend.domain.achievement.repository.MemberAchievementRepository;
+import com.c206.backend.domain.achievement.service.MemberAchievementService;
 import com.c206.backend.domain.achievement.service.MemberAchievementServiceImpl;
 import com.c206.backend.domain.member.entity.Member;
 import com.c206.backend.domain.member.entity.MemberInfo;
@@ -15,6 +16,7 @@ import com.c206.backend.domain.pet.entity.Pet;
 import com.c206.backend.domain.pet.entity.enums.PetType;
 import com.c206.backend.domain.pet.repository.MemberPetRepository;
 import com.c206.backend.domain.pet.repository.PetRepository;
+import com.c206.backend.domain.pet.service.MemberPetService;
 import com.c206.backend.domain.pet.service.MemberPetServiceImpl;
 import com.c206.backend.domain.plogging.dto.LocationInfo;
 import com.c206.backend.domain.plogging.dto.request.CreateTrashRequestDto;
@@ -30,6 +32,7 @@ import com.c206.backend.domain.plogging.repository.PloggingRepository;
 import com.c206.backend.domain.plogging.repository.TrashRepository;
 import com.c206.backend.domain.plogging.service.TrashService;
 import com.c206.backend.domain.quest.repository.MemberQuestRepository;
+import com.c206.backend.domain.quest.service.MemberQuestService;
 import com.c206.backend.domain.quest.service.MemberQuestServiceImpl;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -66,10 +69,10 @@ public class TrashServiceImpl implements TrashService {
     private final MemberPetRepository memberPetRepository;
     private final PetRepository petRepository;
     private final MemberRepository memberRepository;
-    private final MemberPetServiceImpl memberPetServiceImpl;
+    private final MemberPetService memberPetService;
     private final TrashRepository trashRepository;
-    private final MemberAchievementServiceImpl memberAchievementServiceImpl;
-    private final MemberQuestServiceImpl memberQuestServiceImpl;
+    private final MemberAchievementService memberAchievementService;
+    private final MemberQuestService memberQuestService;
 
     @Value("${aws.s3.bucket}")
     private String bucket;
@@ -152,23 +155,23 @@ public class TrashServiceImpl implements TrashService {
             case NORMAL -> {
                 exp = 55 ;
                 value=petActive ? 100 : 50;memberPet.addNormal();
-                memberAchievementServiceImpl.updateMemberAchievement(memberId, 4L,1);
-                memberQuestServiceImpl.updateMemberQuest(memberId,memberPet.getId(),3L);}
+                memberAchievementService.updateMemberAchievement(memberId, 4L,1);
+                memberQuestService.updateMemberQuest(memberId,memberPet.getId(),3L);}
             case PLASTIC -> {
                 exp = 66;
                 value=petActive ? 110 : 60;memberPet.addPlastic();
-                memberAchievementServiceImpl.updateMemberAchievement(memberId, 5L,1);
-                memberQuestServiceImpl.updateMemberQuest(memberId,memberPet.getId(),2L);}
+                memberAchievementService.updateMemberAchievement(memberId, 5L,1);
+                memberQuestService.updateMemberQuest(memberId,memberPet.getId(),2L);}
             case CAN -> {
                 exp = 111;
                 value=petActive ? 160 : 100;memberPet.addCan();
-                memberAchievementServiceImpl.updateMemberAchievement(memberId, 6L,1);
-                memberQuestServiceImpl.updateMemberQuest(memberId,memberPet.getId(),5L);}
+                memberAchievementService.updateMemberAchievement(memberId, 6L,1);
+                memberQuestService.updateMemberQuest(memberId,memberPet.getId(),5L);}
             case GLASS -> {
                 exp = 199;
                 value =petActive ? 270 : 200;memberPet.addGlass();
-                memberAchievementServiceImpl.updateMemberAchievement(memberId, 7L,1);
-                memberQuestServiceImpl.updateMemberQuest(memberId,memberPet.getId(),4L);}
+                memberAchievementService.updateMemberAchievement(memberId, 7L,1);
+                memberQuestService.updateMemberQuest(memberId,memberPet.getId(),4L);}
         };
 
         int currency = petActive ? value:0;
@@ -199,7 +202,7 @@ public class TrashServiceImpl implements TrashService {
             result = false;
         }
         if (result) {
-            memberPetServiceImpl.createMemberPet(memberPets, pets, member);
+            memberPetService.createMemberPet(memberPets, pets, member);
         }
         return new CreateTrashResponseDto(
                 trashType,

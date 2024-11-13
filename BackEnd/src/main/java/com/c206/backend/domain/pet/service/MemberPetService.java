@@ -4,6 +4,8 @@ import com.c206.backend.domain.member.entity.Member;
 import com.c206.backend.domain.pet.dto.response.MemberPetDetailResponseDto;
 import com.c206.backend.domain.pet.dto.response.MemberPetListResponseDto;
 import com.c206.backend.domain.pet.dto.response.PetListResponseDto;
+import com.c206.backend.domain.pet.entity.MemberPet;
+import com.c206.backend.domain.pet.entity.Pet;
 
 import java.util.List;
 
@@ -29,5 +31,7 @@ public interface MemberPetService {
 
     // 모든 펫 리스트 조회
     List<PetListResponseDto> getPetList(Long memberId);
+
+    void createMemberPet(List<MemberPet> memberPets, List<Pet> pets, Member member);
 
 }

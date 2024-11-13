@@ -41,6 +41,7 @@ public class MemberAchievementServiceImpl implements MemberAchievementService {
     private final PetRepository petRepository;
     private final MemberPetServiceImpl memberPetServiceImpl;
 
+    @Override
     public void  updateMemberAchievement(Long memberId, Long achievementId,int progress) {
         memberAchievementRepository.findByMemberIdAndAchievementId(memberId,achievementId).updateProgress(progress);
     }
